@@ -1,0 +1,44 @@
+<div class="content">
+    <h1> Actual Charitites </h1>
+    <hr>
+
+    <div class="search-container">
+
+        <div class="search">
+            <input type="text" class="search-field" placeholder="Search by title:" [(ngModel)]="searchTerm" />
+            <clr-icon shape="search"></clr-icon>
+
+        </div>
+
+    </div>
+    <div class="custom-container">
+        <div class="custom-row" *ngFor="let charity of charities| async | charityFilter: searchTerm">
+            <div class="info-container">
+
+                <div class="info">
+                    <h3 class="charity-title">{{charity.title | linesRange: 0: 30}}</h3>
+                </div>
+                <div class="image">
+                    <img *ngIf="charity.image" appImageName='{{charity.image}}' class="logo" alt="Charity image." />
+                </div>
+                <div class="info">
+                    <span> <i>Author:</i> {{charity.owner}}</span>
+                </div>
+                <div *ngIf="charity.description" class="info">
+                    <span> <i>Description:</i> {{charity.description | linesRange: 0: 140}}</span>
+                </div>
+
+                <div class="info" *ngIf="charity.requiredBudget">
+                    <span> <i>Donation:</i> {{charity.currentBudget}}$ / {{charity.requiredBudget}}$ </span>
+                </div>
+
+                <div class="info" *ngIf="charity.requiredVolunteers">
+                    <span> <i>Participants:</i> {{charity.currentVolunteers}} / {{charity.requiredVolunteers}} </span>
+                </div>
+            </div>
+            <div class="read-more">
+                <a type="button" href="charity/{{charity.id}}" class="read-more btn">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>

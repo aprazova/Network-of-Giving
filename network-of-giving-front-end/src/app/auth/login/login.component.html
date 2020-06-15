@@ -1,0 +1,27 @@
+<div class="container justify-content-center">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <h1> Log In</h1>
+
+        <div class="row">
+
+            <clr-input-container>
+                <input id="input-username" type="text" name="username" clrInput placeholder="Username" [formControlName]="'username'" />
+            </clr-input-container>
+
+        </div>
+
+        <div class="row">
+            <input type="password" id="basic" placeholder="Password" class="clr-input" [formControlName]="'password'" />
+        </div>
+        <div class="row">
+            <div *ngIf="!isValid" class="error">
+                Invalid user name or password.
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+
+        </div>
+    </form>
+</div>

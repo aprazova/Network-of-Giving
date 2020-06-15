@@ -1,0 +1,19 @@
+label {
+    color: red;
+    font-size: 12px;
+}
+
+button:focus {
+    outline: none;
+}
+
+.mat-dialog-content {
+    height: 160px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-dialog-content div {
+    margin: auto;
+}

@@ -1,0 +1,41 @@
+.container {
+    margin-top: 40px;
+}
+
+h1 {
+    color: #00567A;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    font-style: italic;
+    padding-bottom: 20px;
+}
+
+.login-form {
+    width: 25%;
+    margin: 10px auto;
+    border: 2px solid #00567A;
+    border-radius: 10px;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px
+}
+
+*:focus {
+    outline: none;
+}
+
+.error {
+    color: red;
+    font-style: italic;
+}
+
+input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+}

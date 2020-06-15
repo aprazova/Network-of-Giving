@@ -1,0 +1,106 @@
+<div class="container justify-content-center">
+    <form class="clr-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <h1> Sign up</h1>
+
+        <div class="clr-form-control">
+            <label for="username" class="clr-control-label">Username</label>
+            <div class="clr-control-container">
+                <div class="clr-input-wrapper">
+                    <input type="text" id="username" [formControlName]="'username'" placeholder="Enter username" class="clr-input">
+                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+                <div *ngIf="invalidUsername" class="error">
+                    <clr-icon shape="info-circle" class="is-error"></clr-icon>
+                    <span class="error-text">This field is required.</span>
+                </div>
+                <span *ngIf="!invalidUsername" class="clr-subtext">This field is required!</span>
+            </div>
+        </div>
+
+        <div class="clr-form-control">
+            <label for="name" class="clr-control-label">Name</label>
+            <div class="clr-control-container">
+                <div class="clr-input-wrapper">
+                    <input type="text" id="name" [formControlName]="'name'" placeholder="Enter name" class="clr-input">
+                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+                <div *ngIf="invalidName" class="error">
+                    <clr-icon shape="info-circle" class="is-error"></clr-icon>
+                    <span class="error-text">This field is required.</span>
+                </div>
+                <span *ngIf="!invalidName" class="clr-subtext">This field is required!</span>
+            </div>
+        </div>
+
+        <div class="clr-form-control">
+            <label for="password" class="clr-control-label">Password</label>
+            <div class="clr-control-container">
+                <div class="clr-input-wrapper">
+                    <input type="password" id="password" [formControlName]="'password'" placeholder="Enter password" class="clr-input">
+                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+                <div *ngIf="invalidPassword" class="error">
+                    <clr-icon shape="info-circle" class="is-error"></clr-icon>
+                    <span class="error-text">This field is required.</span>
+                </div>
+                <span *ngIf="!invalidPassword" class="clr-subtext">This field is required!</span>
+            </div>
+        </div>
+
+        <div class="clr-form-control">
+            <label for="basic" class="clr-control-label">Age</label>
+            <div class="clr-control-container">
+                <div class="clr-input-wrapper">
+                    <input type="number" id="basic" [formControlName]="'age'" min="1" max="100" placeholder="Enter age" class="clr-input">
+                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+                <div *ngIf="invalidAge" class="error">
+                    <clr-icon shape="info-circle" class="is-error"></clr-icon>
+                    <span class="error-text">This field is required.</span>
+                </div>
+                <span *ngIf="!invalidAge" class="clr-subtext">This field is required!</span>
+            </div>
+        </div>
+
+        <div class="clr-form-control">
+            <label class="clr-control-label">Gender</label>
+            <div class="clr-control-container clr-control-inline">
+                <div class="clr-radio-wrapper">
+                    <input type="radio" id="vertical-radio1" [formControlName]="'gender'" name="gender" value="female" class="clr-radio">
+                    <label for="vertical-radio1" class="clr-control-label">Female</label>
+                </div>
+                <div class="clr-radio-wrapper">
+                    <input type="radio" id="vertical-radio2" [formControlName]="'gender'" name="gender" value="male" class="clr-radio">
+                    <label for="vertical-radio2" class="clr-control-label">Male</label>
+                </div>
+                <div class="clr-radio-wrapper">
+                    <input type="radio" id="vertical-radio3" [formControlName]="'gender'" name="gender" value="other" class="clr-radio">
+                    <label for="vertical-radio3" class="clr-control-label">Other</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="clr-form-control">
+            <label for="Location" class="clr-control-label">Location</label>
+            <div class="clr-control-container">
+                <div class="clr-input-wrapper">
+                    <input type="text" id="location" [formControlName]="'location'" placeholder="Enter town" class="clr-input">
+                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <div class="button">
+
+                <span id="invalid-username" class="error-text"></span>
+            </div>
+        </div>
+        <div class="clr-form-control">
+
+            <div class="button">
+                <button type="submit" class="btn btn-primary">Sign up</button>
+            </div>
+        </div>
+    </form>
+</div>

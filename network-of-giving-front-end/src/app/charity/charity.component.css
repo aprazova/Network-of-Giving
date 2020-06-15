@@ -1,0 +1,71 @@
+.content {
+    margin: 10px 50px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.charity-title {
+    color: #00567A;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    font-size: 17px;
+}
+
+.image img {
+    width: 450px;
+    height: 300px;
+    margin-right: 20px;
+    border-radius: 3px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    background-color: #00567A;
+    border: 2px solid #00567A;
+    border-radius: 7px;
+    margin-right: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+    color: #00567A;
+    background-color: white;
+}
+
+.description {
+    margin-top: 20px;
+    font-size: 17px;
+}
+
+*:focus {
+    outline: none;
+}
+
+share-buttons {
+    border: none;
+    margin: auto 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

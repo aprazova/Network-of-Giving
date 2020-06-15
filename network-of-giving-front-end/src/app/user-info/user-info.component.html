@@ -1,0 +1,93 @@
+<div class="container">
+
+    <div class="custom-header">
+        <div>
+            <h1> Profile Information</h1>
+        </div>
+        <div>
+            <button class="btn btn-primary" routerLink="/edit">Edit</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="user-info" *ngIf="user">
+            <div class="info">
+                <span>Name: {{user.name}}</span>
+            </div>
+            <div class="info">
+                <span>Age: {{user.age}}</span>
+            </div>
+            <div class="info">
+                <span>Gender: {{user.gender}}</span>
+            </div>
+            <div class="info">
+                <span>Location: {{user.location}}</span>
+            </div>
+        </div>
+        <div class="transactions" *ngIf="this.user && ((this.user.usersTransactions | json ) != ({} | json))">
+            <h3> Transactions</h3>
+
+            <div class="transaction-row table-fields">
+                <div class="date">
+                    <span> Date</span>
+                </div>
+                <div class="transacion-info">
+                    <span> Information</span>
+                </div>
+            </div>
+
+            <div *ngFor="let transaction of this.user.usersTransactions">
+                <div class="transaction-row" *ngIf="transaction.isVolunteer">
+                    <div class="date">
+                        <span> {{transaction.registeredAt}}</span>
+                    </div>
+                    <div class="transacion-info">
+                        <span> You are volunteer for charity &#34;{{transaction.charity.title}}&#34;.</span>
+                    </div>
+                </div>
+                <div class="transaction-row" *ngIf="transaction.donation">
+                    <div class="date">
+                        <span> {{transaction.registeredAt}}</span>
+                    </div>
+                    <div class="transacion-info">
+                        <span> You donate {{transaction.donation}}$ for charity &#34;{{transaction.charity.title}}&#34;.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="charities" *ngIf="this.userCharities">
+            <h3> Your charities</h3>
+            <div class="custom-container">
+
+                <div class="custom-row" *ngFor="let charity of this.userCharities| async ">
+                    <div class="info-container">
+
+                        <div class="info">
+                            <h4 class="charity-title">{{charity.title | linesRange: 0: 30}}</h4>
+                        </div>
+                        <div class="image">
+                            <img *ngIf="charity.image" appImageName='{{charity.image}}' class="logo" alt="Charity image." />
+                        </div>
+                        <div *ngIf="charity.description" class="info">
+                            <span> <i>Description:</i> {{charity.description | linesRange: 0: 40}}</span>
+                        </div>
+
+                        <div class="info" *ngIf="charity.requiredBudget">
+                            <span> <i>Donation:</i> {{charity.currentBudget}}$ / {{charity.requiredBudget}}$ </span>
+                        </div>
+
+                        <div class="info" *ngIf="charity.requiredVolunteers">
+                            <span> <i>Participants:</i> {{charity.currentVolunteers}} / {{charity.requiredVolunteers}} </span>
+                        </div>
+                    </div>
+                    <div class="read-more">
+                        <a type="button" href="charity/{{charity.id}}" class="read-more btn">Read More</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

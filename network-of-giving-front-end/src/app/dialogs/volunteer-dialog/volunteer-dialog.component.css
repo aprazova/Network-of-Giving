@@ -1,0 +1,8 @@
+button:focus {
+    outline: none;
+}
+
+.mat-dialog-actions {
+    width: 50%;
+    margin: auto;
+}

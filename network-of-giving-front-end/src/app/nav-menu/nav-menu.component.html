@@ -1,0 +1,19 @@
+<nav class="subnav">
+    <ul class="nav">
+
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/home" routerLinkActive="active">Dashboard</a>
+        </li>
+
+        <div class="logged-user" *ngIf="authService.isAuthenticated()">
+
+            <li class="nav-item">
+                <a routerLink="/add-charity" routerLinkActive="active" class="nav-link">Create Charity</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/information" routerLinkActive="active">Profile Information</a>
+            </li>
+        </div>
+
+    </ul>
+</nav>

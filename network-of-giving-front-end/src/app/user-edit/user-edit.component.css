@@ -1,0 +1,10 @@
+.container {
+    width: 70%;
+    margin: 30px auto
+}
+
+h1 {
+    color: #00567A;
+    font-style: italic;
+    font-weight: bold;
+}

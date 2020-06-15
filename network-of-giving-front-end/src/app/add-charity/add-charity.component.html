@@ -1,0 +1,69 @@
+<div class="add-charity-content">
+    <div class="container">
+        <div>
+            <h1 class="new-charity-title">Create New Charity</h1>
+            <hr>
+        </div>
+        <form class="add-charity-form" [formGroup]="addCharityForm">
+            <div class="row-info">
+                <div class="info">
+                    <h3>Charity Info:</h3>
+                    <div class="form-group">
+                        <label class="charity-title">Title:</label>
+                        <input type="text" [formControlName]="'title'" class="clr-input form-control" placeholder="Enter title">
+                        <div *ngIf="invalidTitle" class="error">
+                            <clr-icon shape="info-circle" class="is-error"></clr-icon>
+                            <span class="clr-subtext">Title must contain maximum 64 characters.</span>
+                        </div>
+                        <span *ngIf="!invalidTitle" class="helper-text">This field is requred.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="charity-content">Description:</label>
+                        <textarea [formControlName]="'description'"></textarea>
+                        <div *ngIf="invalidDescription" class="error">
+                            <clr-icon shape="info-circle" class="is-error"></clr-icon>
+                            <span class="clr-subtext">Descritpion must contain 10 to 1024 characters.</span>
+                        </div>
+                        <span *ngIf="!invalidDescription" class="helper-text">This field is requred.</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="charity-bidget">Donation required:</label>
+                        <input type="number" [formControlName]="'budget'" min="0" class=" clr-input form-control" placeholder="Donations is in dollars.">
+                        <div *ngIf="invalidBudgetAndParticipants" class="error">
+                            <clr-icon shape="info-circle" class="is-error"></clr-icon>
+                            <span class="clr-subtext">Please, select valid required domation or required participants.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="charity-volunteers">Participants required:</label>
+                        <input type="number" [formControlName]="'volunteers'" min="0" class=" clr-input form-control" placeholder="Enter number">
+                        <div *ngIf="invalidBudgetAndParticipants" class="error">
+                            <clr-icon shape="info-circle" class="is-error"></clr-icon>
+                            <span class="clr-subtext">Please, select valid required donation or required participants.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thumbnail">
+                    <h3> Chose thumbnails: </h3>
+                    <div class="images-container">
+                        <div class="images" *ngFor="let image of images | async">
+                            <img id="{{image.title}}" (click)="selectImage($event)" class="img-f" src="{{image.body}}" alt="Fail.">
+                        </div>
+                    </div>
+                    <div *ngIf="!isSelectThumbnail" class="error">
+                        <clr-icon shape="info-circle" class="is-error"></clr-icon>
+                        <span class="clr-subtext">Please, choose thumbnail.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="submit-button">
+                <div class="btn-group btn-primary">
+                    <button class="btn" (click)="createCharity()">Submit</button>
+                    <button class="btn" routerLink="/home">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

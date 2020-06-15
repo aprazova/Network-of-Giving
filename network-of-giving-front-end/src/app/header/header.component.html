@@ -1,0 +1,30 @@
+<header class="header-6">
+    <div class="branding">
+        <a href="javascript://" class="nav-link">
+            <span class="title">Network for Giving</span>
+        </a>
+    </div>
+    <div class="header-actions">
+
+        <div class="logged-user" *ngIf="authService.isAuthenticated()">
+            <a href="javascript://" class="nav-link nav-icon-text">
+                <clr-icon shape="user"></clr-icon>
+                <span *ngIf="username" class="nav-text">Hello, {{username}}</span>
+            </a>
+            <a href="javascript://" class="nav-link nav-text" (click)="logout()">
+                Log out
+            </a>
+        </div>
+
+        <div class="not-logged-user" *ngIf="!authService.isAuthenticated()">
+            <a href="javascript://" class="nav-link nav-text" (click)="signup()">
+                Sign up
+            </a>
+            <a href="javascript://" class="nav-link nav-text" (click)="login()">
+                Login
+            </a>
+        </div>
+
+
+    </div>
+</header>

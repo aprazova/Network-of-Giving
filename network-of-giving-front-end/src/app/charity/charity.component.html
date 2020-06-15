@@ -1,0 +1,45 @@
+<div class="content" *ngIf="charity">
+    <div class="header-content">
+        <h1 class="charity-title"> {{charity.title}}</h1>
+
+        <div class="buttons">
+            <share-buttons [theme]="'modern-dark'" [include]="['facebook','twitter','linkedin','whatsapp']" [show]="4" [url]="'https://twitter.com/'" [autoSetMeta]="false"></share-buttons>
+
+            <div class="btn-group btn-primary" *ngIf="isOwner()">
+                <button type="submit" class="button" mat-raised-button routerLink="/edit/charity/{{charity.id}}">Edit</button>
+                <button type="submit" class="button" mat-raised-button (click)="onDelete()">Delete</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="image">
+            <img appImageName='{{charity.image}}' alt="Failed to load image.">
+        </div>
+
+        <div class="info">
+            <div class="requirements">
+                <div class="info" *ngIf="charity.requiredBudget">
+                    <span> <i>Donation:</i> {{charity.currentBudget}}$ / {{charity.requiredBudget}}$ </span>
+                </div>
+
+                <div class="info" *ngIf="charity.requiredVolunteers">
+                    <span> <i>Participants:</i> {{charity.currentVolunteers}} / {{charity.requiredVolunteers}} </span>
+                </div>
+            </div>
+
+            <div class="buttons" *ngIf="isAuthenticated()">
+                <button *ngIf="charity.requiredBudget > charity.currentBudget" mat-raised-button type="submit" class="button" (click)="onDonate()">Donate</button>
+                <button *ngIf="charity.requiredVolunteers > charity.currentVolunteers" mat-raised-button type="submit" class="button " (click)="onVolunteer() ">Volunteer</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="charity.description " class="description ">
+        <span> <i>Description:</i> {{charity.description}}</span>
+    </div>
+
+</div>

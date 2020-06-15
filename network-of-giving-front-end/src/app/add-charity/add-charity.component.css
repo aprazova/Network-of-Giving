@@ -1,0 +1,120 @@
+.row-info {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+hr {
+    width: 80%;
+    border: 0;
+    height: 1px;
+    margin-bottom: 30px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+h3,
+h1 {
+    text-align: center;
+    margin: 30px auto;
+}
+
+h1 {
+    font-style: italic;
+    font-weight: bold;
+    color: #00567A;
+}
+
+.info {
+    width: 40%;
+    border: 2px dotted #0072A3;
+    border-radius: 15px;
+}
+
+.thumbnail {
+    width: 45%;
+}
+
+.images-container {
+    margin: auto 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.images img {
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+}
+
+.images img:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.clr-form-control,
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.button {
+    width: 100%;
+    height: 40px;
+    margin: 40px auto;
+    background-color: #00567A;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+    border: none;
+    border-radius: 15px;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #00567A;
+    border: 3px solid #00567A;
+}
+
+.submit-button {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+}
+
+textarea {
+    height: 120px;
+}
+
+img:focus {
+    background-color: black;
+}
+
+.chosenImage {
+    opacity: 0.5;
+}
+
+*:focus {
+    outline: none;
+}
+
+.is-error {
+    margin: 3px;
+}
+
+.error span {
+    color: red;
+}
+
+.error {
+    display: inline-flex;
+}
+
+.helper-text {
+    font-size: 12px;
+}

@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>How many dollars do you want to donate?</h1>
+<div class="mat-dialog-content">
+
+    <div class="input">
+        <input clrInput type="number" min="1" matInput [(ngModel)]="data.donation" placeholder="Enter donation in dollars">
+        <label id="error"></label>
+    </div>
+
+
+    <div class="btn-group btn-primary">
+        <mat-dialog-actions>
+            <button class="btn" mat-button (click)="save()">Donate</button>
+            <button class="btn" mat-button mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </div>
+</div>
